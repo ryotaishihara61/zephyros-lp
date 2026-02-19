@@ -17,6 +17,8 @@ interface LpHeroProps {
   contentMaxWidth?: string;
   /** PC表示時に左右2カラムレイアウトにする（左: キャッチコピー, 右: サブコピー + CVボタン） */
   twoColumnLayout?: boolean;
+  /** CTAボタン上に表示するバッジテキスト（例: "PMF限定10社"） */
+  ctaBadge?: string;
   /** 背景画像の className（object-cover, object-position など）。未指定時は object-cover opacity-40 object-center md:object-top */
   backgroundImageClassName?: string;
   /** 背景画像上のオーバーレイの className。未指定時は 濃いネイビー bg-zephyros-navy/90 */
@@ -70,6 +72,7 @@ export function LpHero({
   backgroundImageClassName = "object-cover opacity-50 object-center md:object-top",
   backgroundOverlayClassName = "bg-zephyros-navy/90",
   twoColumnLayout = false,
+  ctaBadge,
   className = "",
 }: LpHeroProps) {
   return (
@@ -103,20 +106,27 @@ export function LpHero({
             </div>
 
             {/* 右カラム：サブコピー + CVボタン */}
-            <div className="text-left space-y-6 mt-8 md:mt-0">
+            <div className="text-left space-y-6 mt-8 md:mt-0 w-full">
               {subCopy && (
-                <p className="text-lg md:text-xl text-white/95 drop-shadow-md">
+                <p className="text-base md:text-xl text-white/95 drop-shadow-md break-words">
                   {subCopy}
                 </p>
               )}
-              <div>
-                <Button
-                  asChild
-                  size="lg"
-                  className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
-                >
-                  <a href={ctaHref}>{ctaLabel}</a>
-                </Button>
+              <div className="space-y-3">
+                {ctaBadge && (
+                  <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-zephyros-orange text-white tracking-wide">
+                    {ctaBadge}
+                  </span>
+                )}
+                <div>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
+                  >
+                    <a href={ctaHref}>{ctaLabel}</a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

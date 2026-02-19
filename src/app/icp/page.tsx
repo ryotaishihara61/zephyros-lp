@@ -23,7 +23,8 @@ const HERO_COPY = (
 );
 const HERO_SUB =
   "世界を相手に戦う経営者に必要なのは、流暢な発音ではなく「この人ならやり遂げる」という非言語の確信。米国VCのインサイドを知り、エグゼクティブの対話術を極めた稀有な専門家が、あなたのプレゼンスをグローバル基準へ引き上げる。";
-const CTA_LABEL = "10社限定「外国人投資家コミュニケーション力診断」を申し込む";
+const CTA_LABEL = "無料診断に申し込む";
+const CTA_BADGE = "限定10社";
 const CTA_MICRO = "※代表の稼働状況により、早期に締め切る場合がございます";
 
 const CONTEXT_INSIGHT =
@@ -115,6 +116,7 @@ export default function IcpPage() {
         backgroundImageClassName="object-cover opacity-70 object-center md:object-[center_30%]"
         backgroundOverlayClassName="bg-gradient-to-b from-zephyros-navy/75 via-zephyros-navy/65 to-zephyros-navy/55"
         twoColumnLayout
+        ctaBadge={CTA_BADGE}
       />
 
       {/* Context: なぜ今、このプログラムか */}
