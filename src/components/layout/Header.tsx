@@ -78,7 +78,7 @@ export function Header() {
             size="sm"
             className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold rounded-md ml-2"
           >
-            <a href="#cta">資料請求</a>
+            <a href="#cta">お問合せ</a>
           </Button>
         </nav>
 
@@ -143,7 +143,7 @@ export function Header() {
               className="w-full min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold rounded-md"
             >
               <a href="#cta" onClick={() => setMobileOpen(false)}>
-                資料請求
+                お問合せ
               </a>
             </Button>
           </div>

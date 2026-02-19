@@ -5,6 +5,8 @@ interface LpCtaProps {
   description?: string;
   buttonLabel?: string;
   buttonHref?: string;
+  /** ボタン直下のマイクロコピー（例: 締切注意） */
+  buttonMicroCopy?: string;
   className?: string;
 }
 
@@ -13,6 +15,7 @@ export function LpCta({
   description,
   buttonLabel = "今すぐ申し込む",
   buttonHref = "#",
+  buttonMicroCopy,
   className = "",
 }: LpCtaProps) {
   return (
@@ -25,7 +28,7 @@ export function LpCta({
         {description && (
           <p className="text-white/90 text-lg">{description}</p>
         )}
-        <div className="pt-4">
+        <div className="pt-4 space-y-3">
           <Button
             asChild
             size="lg"
@@ -33,6 +36,9 @@ export function LpCta({
           >
             <a href={buttonHref}>{buttonLabel}</a>
           </Button>
+          {buttonMicroCopy && (
+            <p className="text-white/70 text-sm">{buttonMicroCopy}</p>
+          )}
         </div>
       </div>
     </section>

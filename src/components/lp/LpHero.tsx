@@ -8,11 +8,37 @@ interface LpHeroProps {
   ctaHref?: string;
   /** 指定時は画像を表示。未指定時はポリゴン／メッシュグラデーションで奥行き表現 */
   backgroundImage?: string;
+  /** default: 標準グラデーション / icp: 深み・金融系のグラデーション */
+  heroVariant?: "default" | "icp";
+  /** メインコピー（h1）に渡す追加クラス（例: font-extrabold） */
+  catchCopyClassName?: string;
+  /** コンテンツラッパーの幅（指定時は max-w-4xl の代わりに使用。例: max-w-5xl lg:max-w-6xl） */
+  contentMaxWidth?: string;
+  /** 背景画像の className（object-cover, object-position など）。未指定時は object-cover opacity-40 object-center md:object-top */
+  backgroundImageClassName?: string;
+  /** 背景画像上のオーバーレイの className。未指定時は 濃いネイビー bg-zephyros-navy/90 */
+  backgroundOverlayClassName?: string;
   className?: string;
 }
 
 /** ヒーロー用メッシュグラデーション（奥行き・高級感） */
-function HeroGradientBg() {
+function HeroGradientBg({ variant = "default" }: { variant?: "default" | "icp" }) {
+  if (variant === "icp") {
+    return (
+      <div
+        className="absolute inset-0 z-0"
+        aria-hidden
+        style={{
+          background: `
+            linear-gradient(165deg, oklch(0.18 0.04 260) 0%, oklch(0.22 0.05 255) 40%, oklch(0.26 0.04 250) 100%),
+            radial-gradient(ellipse 90% 50% at 50% -5%, oklch(0.35 0.06 260 / 0.4) 0%, transparent 55%),
+            radial-gradient(ellipse 60% 35% at 85% 70%, oklch(0.28 0.04 240 / 0.35) 0%, transparent 50%),
+            radial-gradient(ellipse 50% 30% at 15% 85%, oklch(0.25 0.03 260 / 0.3) 0%, transparent 45%)
+          `,
+        }}
+      />
+    );
+  }
   return (
     <div
       className="absolute inset-0 z-0"
@@ -35,6 +61,11 @@ export function LpHero({
   ctaLabel = "お問い合わせ",
   ctaHref = "#cta",
   backgroundImage,
+  heroVariant = "default",
+  catchCopyClassName = "",
+  contentMaxWidth,
+  backgroundImageClassName = "object-cover opacity-50 object-center md:object-top",
+  backgroundOverlayClassName = "bg-zephyros-navy/90",
   className = "",
 }: LpHeroProps) {
   return (
@@ -47,20 +78,21 @@ export function LpHero({
             src={backgroundImage}
             alt=""
             fill
-            className="object-cover opacity-30"
+            className={backgroundImageClassName}
             priority
+            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-zephyros-navy/80" />
+          <div className={`absolute inset-0 ${backgroundOverlayClassName}`} />
         </div>
       ) : (
-        <HeroGradientBg />
+        <HeroGradientBg variant={heroVariant} />
       )}
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+      <div className={`relative z-10 mx-auto text-center space-y-6 ${contentMaxWidth ?? "max-w-4xl"}`}>
+        <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight drop-shadow-lg ${catchCopyClassName}`.trim()}>
           {catchCopy}
         </h1>
         {subCopy && (
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto drop-shadow-md">
             {subCopy}
           </p>
         )}
