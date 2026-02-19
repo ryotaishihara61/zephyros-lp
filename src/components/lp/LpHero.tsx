@@ -1,8 +1,9 @@
+import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 interface LpHeroProps {
-  catchCopy: string;
+  catchCopy: React.ReactNode;
   subCopy?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -14,6 +15,8 @@ interface LpHeroProps {
   catchCopyClassName?: string;
   /** コンテンツラッパーの幅（指定時は max-w-4xl の代わりに使用。例: max-w-5xl lg:max-w-6xl） */
   contentMaxWidth?: string;
+  /** PC表示時に左右2カラムレイアウトにする（左: キャッチコピー, 右: サブコピー + CVボタン） */
+  twoColumnLayout?: boolean;
   /** 背景画像の className（object-cover, object-position など）。未指定時は object-cover opacity-40 object-center md:object-top */
   backgroundImageClassName?: string;
   /** 背景画像上のオーバーレイの className。未指定時は 濃いネイビー bg-zephyros-navy/90 */
@@ -66,6 +69,7 @@ export function LpHero({
   contentMaxWidth,
   backgroundImageClassName = "object-cover opacity-50 object-center md:object-top",
   backgroundOverlayClassName = "bg-zephyros-navy/90",
+  twoColumnLayout = false,
   className = "",
 }: LpHeroProps) {
   return (
@@ -87,24 +91,57 @@ export function LpHero({
       ) : (
         <HeroGradientBg variant={heroVariant} />
       )}
-      <div className={`relative z-10 mx-auto text-center space-y-6 ${contentMaxWidth ?? "max-w-4xl"}`}>
-        <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight drop-shadow-lg ${catchCopyClassName}`.trim()}>
-          {catchCopy}
-        </h1>
-        {subCopy && (
-          <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto drop-shadow-md">
-            {subCopy}
-          </p>
+      <div className={`relative z-10 mx-auto w-full ${contentMaxWidth ?? "max-w-4xl"}`}>
+        {twoColumnLayout ? (
+          /* PC: 2カラム（左: キャッチコピー, 右: サブコピー + CVボタン） */
+          <div className="flex flex-col md:grid md:grid-cols-2 md:gap-16 items-start md:items-center">
+            {/* 左カラム：キャッチコピー */}
+            <div className="text-left">
+              <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight drop-shadow-lg ${catchCopyClassName}`.trim()}>
+                {catchCopy}
+              </h1>
+            </div>
+
+            {/* 右カラム：サブコピー + CVボタン */}
+            <div className="text-left space-y-6 mt-8 md:mt-0">
+              {subCopy && (
+                <p className="text-lg md:text-xl text-white/95 drop-shadow-md">
+                  {subCopy}
+                </p>
+              )}
+              <div>
+                <Button
+                  asChild
+                  size="lg"
+                  className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
+                >
+                  <a href={ctaHref}>{ctaLabel}</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          /* デフォルト: センター1カラム */
+          <div className="text-center space-y-6">
+            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight drop-shadow-lg ${catchCopyClassName}`.trim()}>
+              {catchCopy}
+            </h1>
+            {subCopy && (
+              <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto drop-shadow-md">
+                {subCopy}
+              </p>
+            )}
+            <div className="pt-4">
+              <Button
+                asChild
+                size="lg"
+                className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
+              >
+                <a href={ctaHref}>{ctaLabel}</a>
+              </Button>
+            </div>
+          </div>
         )}
-        <div className="pt-4">
-          <Button
-            asChild
-            size="lg"
-            className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
-          >
-            <a href={ctaHref}>{ctaLabel}</a>
-          </Button>
-        </div>
       </div>
     </section>
   );

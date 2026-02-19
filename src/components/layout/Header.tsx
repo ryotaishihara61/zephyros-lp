@@ -1,23 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 
-const NAV_ITEMS = [
+const DEFAULT_NAV_ITEMS = [
   { label: "特徴", href: "#strengths", external: false },
   { label: "お客様の声", href: "#voices", external: false },
   { label: "FAQ", href: "#faq", external: false },
   { label: "会社概要", href: "https://zephyros.jp/about-us/", external: true },
 ] as const;
 
+const ICP_NAV_ITEMS = [
+  { label: "会社概要", href: "https://zephyros.jp/about-us/", external: true },
+] as const;
+
 const SCROLL_THRESHOLD = 24;
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // ICPページかどうかで表示するナビゲーションを切り替え
+  const navItems = pathname === "/icp" ? ICP_NAV_ITEMS : DEFAULT_NAV_ITEMS;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
@@ -51,7 +60,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.external ? (
               <a
                 key={item.label}
@@ -114,7 +123,7 @@ export function Header() {
         } ${scrolled ? "bg-white shadow-lg" : "bg-zephyros-navy/95 backdrop-blur"}`}
       >
         <nav className="flex flex-col py-4 px-4">
-          {NAV_ITEMS.map((item) =>
+          {navItems.map((item) =>
             item.external ? (
               <a
                 key={item.label}

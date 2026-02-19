@@ -12,7 +12,15 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const HERO_COPY = "投資家は「英語力」ではなく「あなた」を見ている。";
+const HERO_COPY = (
+  <>
+    投資家は
+    <br />
+    英語力ではなく
+    <br />
+    あなたを見ている。
+  </>
+);
 const HERO_SUB =
   "世界を相手に戦う経営者に必要なのは、流暢な発音ではなく「この人ならやり遂げる」という非言語の確信。米国VCのインサイドを知り、エグゼクティブの対話術を極めた稀有な専門家が、あなたのプレゼンスをグローバル基準へ引き上げる。";
 const CTA_LABEL = "10社限定「外国人投資家コミュニケーション力診断」を申し込む";
@@ -106,6 +114,7 @@ export default function IcpPage() {
         backgroundImage={ICP_IMAGES.hero}
         backgroundImageClassName="object-cover opacity-70 object-center md:object-[center_30%]"
         backgroundOverlayClassName="bg-gradient-to-b from-zephyros-navy/75 via-zephyros-navy/65 to-zephyros-navy/55"
+        twoColumnLayout
       />
 
       {/* Context: なぜ今、このプログラムか */}
