@@ -3,7 +3,7 @@ import { type ReactNode } from "react";
 interface LpSectionProps {
   children: ReactNode;
   /** 背景: default | navy | light | white */
-  variant?: "default" | "navy" | "light" | "white";
+  variant?: "default" | "navy" | "dark" | "light" | "white";
   className?: string;
   /** セクション用のHTML id（アンカー用） */
   id?: string;
@@ -12,6 +12,7 @@ interface LpSectionProps {
 const variantClasses = {
   default: "bg-background",
   navy: "bg-zephyros-navy text-white",
+  dark: "bg-slate-900 text-white",
   light: "bg-zephyros-navy-light/10",
   white: "bg-white text-foreground",
 };

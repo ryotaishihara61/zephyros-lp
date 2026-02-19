@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Quote, ChevronRight } from "lucide-react";
+import { Quote, ChevronRight, Star } from "lucide-react";
 import { LpHero } from "@/components/lp/LpHero";
 import { LpSection } from "@/components/lp/LpSection";
-import { LpCta } from "@/components/lp/LpCta";
+
 import { LpAnimateSection } from "@/components/lp/LpAnimateSection";
 import {
   Card,
@@ -179,26 +179,26 @@ export default function IcpPage() {
 
       {/* 4-Day Sprint */}
       <LpSection
-        variant="white"
+        variant="dark"
         id="sprint"
-        className="py-24 md:py-32 bg-slate-50/80 border-b border-slate-200/80"
+        className="py-24 md:py-32"
       >
         <LpAnimateSection>
-          <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-6 md:mb-8 tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 md:mb-8 tracking-tight">
             経営者の変革プロセス — 4-Day Sprint
           </h2>
-          <p className="text-slate-600 text-center max-w-2xl mx-auto mb-14 md:mb-20 text-base md:text-lg leading-relaxed">
+          <p className="text-white/75 text-center max-w-2xl mx-auto mb-14 md:mb-20 text-base md:text-lg leading-relaxed">
             単なる手順ではなく、経営者としての「見られ方」とプレゼンスが変わる四日間。代表と講師が役割を分担し、日本語での戦略設計から英語での総仕上げまで一気通貫でサポートします。
           </p>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 list-none p-0 m-0 max-w-5xl mx-auto">
             {SPRINT_STEPS.map((item, index) => (
               <li key={index} className="relative">
-                <Card className={`h-full border-slate-200 bg-white relative ${CARD_HOVER}`}>
+                <Card className="h-full bg-white border border-orange-500/30 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
                   <CardHeader className="pb-2">
-                    <span className="text-xs font-semibold text-zephyros-navy/70 tracking-widest mb-2 block">
-                      Step {item.step}
+                    <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
+                      Day {item.step}
                     </span>
-                    <CardTitle className="text-zephyros-navy text-lg font-semibold">
+                    <CardTitle className="text-slate-900 text-lg font-semibold">
                       {item.title}
                     </CardTitle>
                     <p className="text-sm text-slate-500 mt-1">{item.sub}</p>
@@ -208,7 +208,7 @@ export default function IcpPage() {
                   </CardContent>
                 </Card>
                 {index < SPRINT_STEPS.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-slate-300 pointer-events-none" aria-hidden>
+                  <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-orange-500/50 pointer-events-none" aria-hidden>
                     <ChevronRight className="size-6" />
                   </div>
                 )}
@@ -355,29 +355,35 @@ export default function IcpPage() {
         </LpAnimateSection>
       </LpSection>
 
-      {/* 10社限定オファー */}
+      {/* 10社限定オファー & CTA */}
       <LpSection
-        variant="light"
-        id="offer"
-        className="py-24 md:py-32 bg-zephyros-navy-light/10 border-y border-slate-200/80"
+        variant="navy"
+        id="cta"
+        className="py-24 md:py-32"
       >
         <LpAnimateSection>
-          <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-8 md:mb-10">
-            10社限定「外国人投資家コミュニケーション力診断」
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 md:mb-10">
+            10社限定<br />「外国人投資家コミュニケーション力診断」
           </h2>
-          <p className="text-slate-700 text-center max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            代表が直接全工程を監修。実績公開にご協力いただけるスタートアップに限り、<strong className="text-zephyros-navy">特別価格</strong>での提供となります。まずは診断で現状の課題とゴールを整理し、ご納得のうえでプログラム設計をご提案します。
+          <p className="text-white/90 text-center max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10">
+            代表のJun Pageが、外国人投資家対応をされる経営者との1時間の診断セッションを無料で実施いたします。外国人投資家からどう見えるか、最短距離でコミュニケーション力を上げる方向性などをお伝えさせていただきます。
           </p>
+          <div className="flex flex-col items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-md bg-zephyros-navy/80 text-amber-400 border-2 border-amber-400/70 tracking-widest shadow-lg shadow-amber-500/20 backdrop-blur-sm">
+              <Star className="size-3.5 fill-amber-400 flex-shrink-0" aria-hidden />
+              {CTA_BADGE}
+            </span>
+            <Button
+              asChild
+              size="lg"
+              className="min-h-[44px] bg-zephyros-orange hover:bg-zephyros-orange/90 text-white font-semibold px-8 py-6 text-base rounded-md transition-transform duration-200 hover:scale-105"
+            >
+              <a href={CONTACT_URL}>{CTA_LABEL}</a>
+            </Button>
+            <p className="text-white/70 text-sm">{CTA_MICRO}</p>
+          </div>
         </LpAnimateSection>
       </LpSection>
-
-      <LpCta
-        title="外国人投資家コミュニケーション力診断・お問い合わせ"
-        description="10社限定枠へのお申し込み、プログラムの詳細はお問い合わせフォームよりお気軽にご連絡ください。"
-        buttonLabel={CTA_LABEL}
-        buttonHref={CONTACT_URL}
-        buttonMicroCopy={CTA_MICRO}
-      />
     </main>
   );
 }

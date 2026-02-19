@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LpHeroProps {
@@ -114,7 +115,8 @@ export function LpHero({
               )}
               <div className="space-y-3">
                 {ctaBadge && (
-                  <span className="inline-block text-xs font-bold px-3 py-1.5 rounded-full bg-zephyros-orange text-white tracking-wide">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold px-4 py-1.5 rounded-md bg-zephyros-navy/80 text-amber-400 border-2 border-amber-400/70 tracking-widest shadow-lg shadow-amber-500/20 backdrop-blur-sm">
+                    <Star className="size-3.5 fill-amber-400 flex-shrink-0" aria-hidden />
                     {ctaBadge}
                   </span>
                 )}
