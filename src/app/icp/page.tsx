@@ -83,11 +83,11 @@ const CARD_HOVER =
   "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-zephyros-navy/30";
 
 export const metadata = {
-  title: "Investor Communication Program (ICP)｜あなたの「存在感」を変える5日間",
+  title: "Equity English Bootcamp｜あなたの「存在感」を変える5日間",
   description:
     "経営者の振る舞い・話し方・見られ方をグローバル投資家基準へ引き上げる5日間集中ブートキャンプ。米国VCのインサイドを知る Jun Page が、あなたのプレゼンスを変える。",
   openGraph: {
-    title: "Investor Communication Program (ICP)｜ZEPHYROS",
+    title: "Equity English Bootcamp｜ZEPHYROS",
     description:
       "あなたの事業を変えるのではない。あなたの「存在感」を変えるのだ。10社限定・5日間集中ブートキャンプ。",
     url: "/icp",
@@ -200,7 +200,7 @@ export default function IcpPage() {
       >
         <LpAnimateSection>
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 md:mb-10 tracking-tight">
-            Investor Communication Program (ICP)
+            Equity English Bootcamp
           </h2>
           <p className="text-white/85 text-center max-w-2xl mx-auto mb-14 md:mb-20 text-base md:text-lg">
             外国人投資家のインサイドを知る専門家が、CXOの存在感と人間力を投資家に伝わる対話へと叩き込む。
