@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Quote, ChevronRight, Star } from "lucide-react";
+import { Quote, Star, MapPin, X, Check } from "lucide-react";
 import { LpHero } from "@/components/lp/LpHero";
 import { LpSection } from "@/components/lp/LpSection";
 
@@ -14,15 +14,15 @@ import { Button } from "@/components/ui/button";
 
 const HERO_COPY = (
   <>
-    投資家は
+    海外投資家は、
     <br />
-    英語力ではなく
+    あなたの「英語力」を見ていない。
     <br />
-    あなたを見ている。
+    あなたの「存在感」を見ている。
   </>
 );
 const HERO_SUB =
-  "世界を相手に戦う経営者に必要なのは、流暢な発音ではなく「この人ならやり遂げる」という非言語の確信。米国VCのインサイドを知り、エグゼクティブの対話術を極めた稀有な専門家が、あなたのプレゼンスをグローバル基準へ引き上げる。";
+  "経営者の『振る舞い・話し方・見られ方（How）』を、グローバル投資家基準へ引き上げる。それが「Equity English Bootcamp」の唯一のミッションです。";
 const CTA_LABEL = "無料診断に申し込む";
 const CTA_BADGE = "限定10社";
 const CTA_MICRO = "※代表の稼働状況により、早期に締め切る場合がございます";
@@ -32,12 +32,12 @@ const CONTEXT_INSIGHT =
 
 const ICP_FEATURES = [
   {
-    title: "Investor Insight Audit",
+    title: "Presence Audit",
     description:
       "ビジネスモデルではなく、あなたの「経営者としての見られ方」を、米国VCの評価軸で徹底的に監査。",
   },
   {
-    title: "Beyond the Language",
+    title: "Non-verbal Mastery",
     description:
       "英語力の限界を超え、非言語（プレゼンス・声のトーン・間合い）で相手を心服させるエグゼクティブのデリバリー。",
   },
@@ -48,30 +48,24 @@ const ICP_FEATURES = [
   },
 ] as const;
 
-const SPRINT_STEPS = [
+const TRAINING_DAYS = [
   {
-    step: "01",
-    title: "Equity Story Audit",
-    sub: "日本語 / 代表担当",
-    description: "投資ロジックの脆弱性を特定。",
+    step: 2,
+    title: "Non-verbal Mastery",
+    description:
+      "視線・姿勢・声のトーン。言葉より先に伝わる非言語シグナルを投資家基準に再設計する。",
   },
   {
-    step: "02",
-    title: "Narrative Structuring",
-    sub: "英語 / 講師担当",
-    description: "外国人投資家に刺さる構造へ変換。",
+    step: 3,
+    title: "Dialogue Agility",
+    description:
+      "想定外の問いへの対話力。「ロジックと気迫」で心理的優位を保つ実戦トレーニング。",
   },
   {
-    step: "03",
-    title: "Delivery Coaching",
-    sub: "英語 / 講師担当",
-    description: "信頼を勝ち取るプレゼンスと発音。",
-  },
-  {
-    step: "04",
-    title: "Simulation",
-    sub: "英語 / 総仕上げ",
-    description: "代表と講師によるQ&A千本ノック。",
+    step: 4,
+    title: "Presence Integration",
+    description:
+      "習得スキルを統合。実戦ロールプレイで瞬発力と一貫性を磨き上げる。",
   },
 ] as const;
 
@@ -81,7 +75,6 @@ const AIONA_URL = "https://zephyros.jp/2026/02/16/aiona/";
 /** ICP用画像（public/images/icp/ に配置） */
 const ICP_IMAGES = {
   hero: "/images/icp/hero_representative_discussion.jpg",
-  heroAlt: "/images/icp/hero_coaching_scene.jpg",
   representative: "/images/icp/representative_portrait.jpg",
   caseStudy: "/images/icp/case_study_aiona_training.jpg",
 } as const;
@@ -90,13 +83,13 @@ const CARD_HOVER =
   "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-zephyros-navy/30";
 
 export const metadata = {
-  title: "Investor Communication Program (ICP)｜投資家は「あなた」を見ている",
+  title: "Investor Communication Program (ICP)｜あなたの「存在感」を変える5日間",
   description:
-    "投資家は英語力ではなくあなたを見ている。米国VCのインサイドを知り、エグゼクティブの対話術を極めた専門家が、あなたのプレゼンスをグローバル基準へ引き上げる。",
+    "経営者の振る舞い・話し方・見られ方をグローバル投資家基準へ引き上げる5日間集中ブートキャンプ。米国VCのインサイドを知る Jun Page が、あなたのプレゼンスを変える。",
   openGraph: {
     title: "Investor Communication Program (ICP)｜ZEPHYROS",
     description:
-      "投資家は「英語力」ではなく「あなた」を見ている。10社限定・外国人投資家コミュニケーション力診断。",
+      "あなたの事業を変えるのではない。あなたの「存在感」を変えるのだ。10社限定・5日間集中ブートキャンプ。",
     url: "/icp",
   },
 };
@@ -110,7 +103,7 @@ export default function IcpPage() {
         ctaLabel={CTA_LABEL}
         ctaHref="#cta"
         heroVariant="icp"
-        catchCopyClassName="font-extrabold tracking-tight"
+        catchCopyClassName="font-extrabold tracking-tight !text-[1.375rem] sm:!text-[1.1875rem] md:!text-[1.375rem] lg:!text-[1.6875rem] xl:!text-[2.0625rem]"
         contentMaxWidth="max-w-4xl md:max-w-5xl lg:max-w-6xl"
         backgroundImage={ICP_IMAGES.hero}
         backgroundImageClassName="object-cover opacity-70 object-center md:object-[center_30%]"
@@ -138,6 +131,63 @@ export default function IcpPage() {
                 {CONTEXT_INSIGHT}
               </p>
             </blockquote>
+          </div>
+        </LpAnimateSection>
+      </LpSection>
+
+      {/* Our Scope: We Don't / We Do */}
+      <LpSection
+        variant="white"
+        id="scope"
+        className="py-24 md:py-32 bg-slate-50 border-b border-slate-200/80"
+      >
+        <LpAnimateSection>
+          <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-3 tracking-tight">
+            Our Scope
+          </h2>
+          <p className="text-slate-500 text-center mb-12 md:mb-16 text-sm tracking-widest font-medium uppercase">
+            私たちが扱うもの、扱わないもの
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {/* We Don't */}
+            <Card className="border-red-100 bg-white">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-9 h-9 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <X className="size-4 text-red-500" />
+                  </div>
+                  <CardTitle className="text-red-600 text-xl font-bold">We Don&apos;t</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-slate-800 text-base font-semibold mb-3 leading-snug">
+                  事業内容・数値計画への口出し
+                </p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  ビジネスモデルの善し悪し、財務計画の精度——それらは私たちの専門外です。あなたの事業（What）には一切口を出しません。専門領域への不可侵が、私たちの誠実さです。
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* We Do */}
+            <Card className="border-emerald-100 bg-white">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                    <Check className="size-4 text-emerald-600" />
+                  </div>
+                  <CardTitle className="text-emerald-700 text-xl font-bold">We Do</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-slate-800 text-base font-semibold mb-3 leading-snug">
+                  コミュニケーションの極限チューニング
+                </p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  海外投資家との心理的距離を詰め、信頼を勝ち取るための「非言語・言語コミュニケーション（How）」を、グローバル投資家基準まで引き上げることが私たちの全てです。
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </LpAnimateSection>
       </LpSection>
@@ -177,44 +227,105 @@ export default function IcpPage() {
         </LpAnimateSection>
       </LpSection>
 
-      {/* 4-Day Sprint */}
+      {/* 5日間集中ブートキャンプ: 1-3-1 Structure */}
       <LpSection
         variant="dark"
         id="sprint"
         className="py-24 md:py-32"
       >
         <LpAnimateSection>
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 md:mb-8 tracking-tight">
-            経営者の変革プロセス — 4-Day Sprint
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4 md:mb-6 tracking-tight">
+            5日間集中ブートキャンプ
+            <span className="ml-3 text-orange-400 font-extrabold">1-3-1</span>
           </h2>
-          <p className="text-white/75 text-center max-w-2xl mx-auto mb-14 md:mb-20 text-base md:text-lg leading-relaxed">
-            単なる手順ではなく、経営者としての「見られ方」とプレゼンスが変わる四日間。代表と講師が役割を分担し、日本語での戦略設計から英語での総仕上げまで一気通貫でサポートします。
+          <p className="text-white/75 text-center max-w-2xl mx-auto mb-5 text-base md:text-lg leading-relaxed">
+            1日5時間×5日間。単なる研修ではなく、経営者としての「見られ方」とプレゼンスが根本から変わる集中プログラム。
           </p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 list-none p-0 m-0 max-w-5xl mx-auto">
-            {SPRINT_STEPS.map((item, index) => (
-              <li key={index} className="relative">
-                <Card className="h-full bg-white border border-orange-500/30 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
-                  <CardHeader className="pb-2">
-                    <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
-                      Day {item.step}
-                    </span>
-                    <CardTitle className="text-slate-900 text-lg font-semibold">
-                      {item.title}
-                    </CardTitle>
-                    <p className="text-sm text-slate-500 mt-1">{item.sub}</p>
-                  </CardHeader>
-                  <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
-                    {item.description}
-                  </CardContent>
-                </Card>
-                {index < SPRINT_STEPS.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-orange-500/50 pointer-events-none" aria-hidden>
-                    <ChevronRight className="size-6" />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center justify-center gap-2 mb-14 md:mb-20 text-white/55 text-sm">
+            <MapPin className="size-4 text-orange-400 flex-shrink-0" aria-hidden />
+            <span>高松本社ビル開催 — プログラム時間外はオフィス設備でリモートワーク可能</span>
+          </div>
+
+          {/* 1-3-1 Grid */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)_minmax(0,1fr)] gap-6 lg:gap-5">
+
+            {/* Phase 1: Day 1 — Jun Page */}
+            <div className="flex flex-col">
+              <div className="text-center mb-3">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-orange-400 bg-orange-400/10 border border-orange-400/30 rounded-md px-3 py-1">
+                  Phase 1 — Audit
+                </span>
+              </div>
+              <Card className="flex-1 bg-white border border-orange-400/50 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
+                <CardHeader className="pb-2">
+                  <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
+                    Day 1
+                  </span>
+                  <CardTitle className="text-slate-900 text-base md:text-lg font-semibold leading-snug">
+                    Persona & Presence Audit
+                  </CardTitle>
+                  <p className="text-sm text-orange-600 font-semibold mt-1">Jun Page / 代表直轄</p>
+                </CardHeader>
+                <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
+                  現状の振る舞いが投資家にどう映っているかを徹底解析。非言語シグナルから言葉の選択まで全てを投資家の眼で評価し、変革のベースラインを確定する。
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Phase 2: Day 2-4 — Native Instructors */}
+            <div className="flex flex-col">
+              <div className="text-center mb-3">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-white/60 bg-white/5 border border-white/20 rounded-md px-3 py-1">
+                  Phase 2 — Performance Training
+                </span>
+              </div>
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {TRAINING_DAYS.map((day) => (
+                  <Card
+                    key={day.step}
+                    className="bg-white border border-slate-200 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.3)]"
+                  >
+                    <CardHeader className="pb-2">
+                      <span className="text-3xl font-extrabold text-slate-400 tracking-tight mb-1 block">
+                        Day {day.step}
+                      </span>
+                      <CardTitle className="text-slate-900 text-sm md:text-base font-semibold leading-snug">
+                        {day.title}
+                      </CardTitle>
+                      <p className="text-xs text-slate-500 mt-1">精鋭ネイティブ講師</p>
+                    </CardHeader>
+                    <CardContent className="pt-0 text-slate-600 text-xs md:text-sm leading-relaxed">
+                      {day.description}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Phase 3: Day 5 — Jun Page */}
+            <div className="flex flex-col">
+              <div className="text-center mb-3">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-orange-400 bg-orange-400/10 border border-orange-400/30 rounded-md px-3 py-1">
+                  Phase 3 — Final
+                </span>
+              </div>
+              <Card className="flex-1 bg-white border border-orange-400/50 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
+                <CardHeader className="pb-2">
+                  <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
+                    Day 5
+                  </span>
+                  <CardTitle className="text-slate-900 text-base md:text-lg font-semibold leading-snug">
+                    Final Pitch Simulation
+                  </CardTitle>
+                  <p className="text-sm text-orange-600 font-semibold mt-1">Jun Page / 代表直轄</p>
+                </CardHeader>
+                <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
+                  投資家を心服させるプレゼンスが完成しているか、代表がジャッジ。本物の投資家基準で最終評価を行い、次のピッチへの確信を手渡す。
+                </CardContent>
+              </Card>
+            </div>
+
+          </div>
         </LpAnimateSection>
       </LpSection>
 
@@ -289,68 +400,153 @@ export default function IcpPage() {
         </LpAnimateSection>
       </LpSection>
 
-      {/* Instructor: Jun Page */}
+      {/* Instructor & Social Proof */}
       <LpSection
         variant="white"
         id="instructor"
-        className="py-20 md:py-24 border-t border-slate-200/80"
+        className="py-20 md:py-28 border-t border-slate-200/80"
       >
         <LpAnimateSection>
-          <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-6 md:mb-8">
-            あなたのプレゼンスを、グローバル基準へ引き上げる専門家
+
+          {/* Part 1: なぜZEPHYROSなのか */}
+          <div className="text-center mb-16 md:mb-20">
+            <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy mb-3 tracking-tight">
+              なぜ、ZEPHYROSなのか
+            </h2>
+            <p className="text-slate-400 text-xs tracking-widest font-semibold uppercase mb-10">
+              50年の信頼が、あなたのプレゼンスを変える
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-8 max-w-xs mx-auto mb-10">
+              <div className="text-center">
+                <p className="text-4xl md:text-5xl font-extrabold text-zephyros-navy tracking-tight">
+                  50<span className="text-xl md:text-2xl font-bold">年</span>
+                </p>
+                <p className="text-slate-500 text-xs mt-1.5 leading-snug">グローバル人材育成の歴史</p>
+              </div>
+              <div className="text-center">
+                <p className="text-4xl md:text-5xl font-extrabold text-zephyros-navy tracking-tight">
+                  40<span className="text-xl md:text-2xl font-bold">万</span><span className="text-lg font-bold">人</span>
+                </p>
+                <p className="text-slate-500 text-xs mt-1.5 leading-snug">のグローバル挑戦を支援</p>
+              </div>
+            </div>
+
+            <p className="text-slate-600 text-base max-w-2xl mx-auto mb-12 leading-relaxed">
+              日本の大手企業の海外進出を、黒子として支え続けてきた専門機関。その知見が今、経営者個人の「存在感」を変えるプログラムに凝縮されている。
+            </p>
+
+            {/* Philosophy quote */}
+            <div className="max-w-2xl mx-auto mb-12 text-left">
+              <blockquote className="border-l-4 border-orange-400 pl-6 py-4 bg-orange-50/40 rounded-r-lg">
+                <p className="text-zephyros-navy font-bold text-lg md:text-xl leading-relaxed tracking-tight">
+                  「流暢な英語は、世界で活躍するためのパスポートではない」
+                </p>
+                <p className="text-slate-600 text-sm md:text-base mt-3 leading-relaxed">
+                  日本での生活・就労経験を持つ講師陣だからこそ可能な、文化的背景と実体験を交えたグローバル視点の指導——それが私たちの圧倒的な強みです。
+                </p>
+              </blockquote>
+            </div>
+
+            {/* Client list */}
+            <div>
+              <p className="text-slate-400 text-xs tracking-widest uppercase font-semibold mb-5">
+                主要クライアント実績（一部）
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {["トヨタ自動車", "今治造船", "大塚製薬"].map((name) => (
+                  <span
+                    key={name}
+                    className="text-sm font-semibold text-zephyros-navy bg-white border border-slate-200 rounded-lg px-5 py-2.5 shadow-sm"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-slate-200/80 mb-16" />
+
+          {/* Part 2: 講師陣 */}
+          <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-4 tracking-tight">
+            あなたのプレゼンスを変える、2つの力
           </h2>
-          <div className="max-w-5xl mx-auto">
-            <Card className={`border-slate-200 bg-white ${CARD_HOVER}`}>
-              <div className="p-6 md:p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
-                  {/* Jun Page Profile */}
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative w-32 h-32 rounded-2xl overflow-hidden bg-slate-100 mb-4">
-                      <Image
-                        src={ICP_IMAGES.representative}
-                        alt="Jun Page — 株式会社ゼフィロス 代表取締役"
-                        fill
-                        className="object-cover"
-                        sizes="128px"
-                      />
-                    </div>
-                    <p className="text-zephyros-navy font-bold text-lg mb-1">Jun Page</p>
-                    <p className="text-slate-600 text-sm mb-4">代表取締役<br/>元KPMG NYシニアマネージャー</p>
-                    <div className="text-left w-full space-y-3 text-sm">
-                      <p className="text-slate-600 leading-snug">
-                        <strong className="text-zephyros-navy block mb-1">専門性</strong>
-                        「グローバル・エグゼクティブ・コミュニケーション」のスペシャリスト。
-                      </p>
-                      <p className="text-slate-600 leading-snug">
-                        <strong className="text-zephyros-navy block mb-1">希少性</strong>
-                        米国トップキャピタリストと日常的に議論を交わす稀有な存在。
-                      </p>
-                      <p className="text-slate-600 leading-snug">
-                        <strong className="text-zephyros-navy block mb-1">武器</strong>
-                        投資家が起業家をどうジャッジするかというインサイダー・インサイト。
-                      </p>
-                    </div>
-                  </div>
-                  {/* ZEPHYROS講師陣 */}
-                  <div className="border-l-0 lg:border-l lg:border-slate-200 lg:pl-8">
-                    <h3 className="text-zephyros-navy text-xl font-bold mb-4">ZEPHYROS講師陣</h3>
-                    <p className="text-slate-600 leading-relaxed mb-6">
-                      <strong className="font-semibold text-zephyros-navy">50年の歴史に裏打ちされた「教える技術」</strong>を持つ、エグゼクティブ対応専門のネイティブ講師。金融・語学の両面から、国際舞台で通用する発信力を鍛えます。
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                      <div className="bg-slate-50 rounded-lg p-4">
-                        <p className="text-zephyros-navy font-semibold mb-2">金融バックグラウンド</p>
-                        <p className="text-slate-600 leading-snug">投資家の視点を熟知した実践的指導</p>
-                      </div>
-                      <div className="bg-slate-50 rounded-lg p-4">
-                        <p className="text-zephyros-navy font-semibold mb-2">エグゼクティブ専門</p>
-                        <p className="text-slate-600 leading-snug">CXOレベルのプレゼンス構築</p>
-                      </div>
-                    </div>
-                  </div>
+          <p className="text-slate-500 text-center max-w-xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
+            戦略家と鍛え屋。Jun Page の「投資家の眼」と、精鋭講師陣の「徹底指導」が、経営者を別次元へと押し上げる。
+          </p>
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-8 items-start">
+
+            {/* Jun Page */}
+            <Card className="border-orange-200/70 bg-white shadow-lg">
+              <div className="p-6 md:p-8 flex flex-col items-center text-center">
+                <div className="relative w-28 h-28 rounded-2xl overflow-hidden bg-slate-100 mb-4 flex-shrink-0">
+                  <Image
+                    src={ICP_IMAGES.representative}
+                    alt="Jun Page — 株式会社ゼフィロス 代表取締役"
+                    fill
+                    className="object-cover"
+                    sizes="112px"
+                  />
+                </div>
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-orange-500 bg-orange-50 border border-orange-200 rounded-md px-3 py-1 mb-3">
+                  Strategy &amp; Judge
+                </span>
+                <p className="text-zephyros-navy font-bold text-xl mb-1">Jun Page</p>
+                <p className="text-slate-500 text-xs mb-5">代表取締役 / ペンシルベニア大学卒 / 元KPMG NYシニアマネージャー</p>
+                <div className="text-left w-full space-y-3 text-sm">
+                  <p className="text-slate-600 leading-snug">
+                    <strong className="text-zephyros-navy block mb-1">投資家の眼力</strong>
+                    米国トップキャピタリストのインサイドを知る稀有な存在。投資家が起業家をどうジャッジするかというインサイダー・インサイトが最大の武器。
+                  </p>
+                  <p className="text-slate-600 leading-snug">
+                    <strong className="text-zephyros-navy block mb-1">VCネットワーク</strong>
+                    ペンシルベニア大学時代からの旧友に米国VCのパートナーが多数在籍。「投資家の眼」はテキストブックではなく、学生時代から続く実際の人間関係から培われたものだ。
+                  </p>
+                  <p className="text-slate-600 leading-snug">
+                    <strong className="text-zephyros-navy block mb-1">担当フェーズ</strong>
+                    Day 1（Audit）と Day 5（Final Simulation）を担当。経営者の変革を最初と最後で見届ける。
+                  </p>
                 </div>
               </div>
             </Card>
+
+            {/* Native Instructors */}
+            <Card className="border-slate-200 bg-white shadow-lg">
+              <div className="p-6 md:p-8">
+                <div className="mb-6">
+                  <span className="inline-block text-xs font-bold tracking-widest uppercase text-zephyros-navy/60 bg-slate-100 border border-slate-200 rounded-md px-3 py-1 mb-3">
+                    Performance Training / Day 2–4
+                  </span>
+                  <h4 className="text-zephyros-navy text-xl font-bold mb-2">精鋭ネイティブ講師陣</h4>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+                    全員が日本での就業経験を持ち、日本人の誠実さ・緻密さ・思慮深さを心から敬意を持って理解している。だからこそ、日本人経営者が「何を持っているか」ではなく、「何が足りないか」が鮮明に見える。
+                  </p>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+                    英会話スクールの講師ではない。グローバルの舞台で日本人が壁にぶつかる瞬間——間の取り方、アイコンタクト、反論への対処——その一点に特化した、コミュニケーション変革のプロフェッショナルだ。
+                  </p>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                    彼らの指導は「正しい英語」を教えることではなく、「投資家が思わず前のめりになるプレゼンス」をあなたの体に染み込ませることにある。
+                  </p>
+                </div>
+                {/* 講師3名の写真プレースホルダー */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+                  {([1, 2, 3] as const).map((n) => (
+                    <div key={n} className="flex flex-col items-center text-center bg-slate-50 rounded-xl p-5 border border-slate-100">
+                      <div className="w-20 h-20 rounded-xl bg-slate-200 border-2 border-dashed border-slate-300 flex items-center justify-center mb-3">
+                        <span className="text-slate-400 text-[10px] font-semibold tracking-wide">PHOTO</span>
+                      </div>
+                      <p className="text-zephyros-navy font-semibold text-sm">ネイティブ講師 {n}</p>
+                      <p className="text-slate-500 text-xs mt-0.5">Day 2–4 担当</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+
           </div>
         </LpAnimateSection>
       </LpSection>
