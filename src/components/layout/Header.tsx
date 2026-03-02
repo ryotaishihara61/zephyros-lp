@@ -15,6 +15,11 @@ const DEFAULT_NAV_ITEMS = [
 ] as const;
 
 const ICP_NAV_ITEMS = [
+  { label: "プログラム", href: "#program", external: false },
+  { label: "5日間", href: "#sprint", external: false },
+  { label: "事例", href: "#case-study", external: false },
+  { label: "講師陣", href: "#instructor", external: false },
+  { label: "お申し込み", href: "#cta", external: false },
   { label: "会社概要", href: "https://zephyros.jp/about-us/", external: true },
 ] as const;
 
