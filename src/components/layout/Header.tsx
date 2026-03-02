@@ -26,7 +26,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // ICPページかどうかで表示するナビゲーションを切り替え
-  const navItems = pathname === "/icp" ? ICP_NAV_ITEMS : DEFAULT_NAV_ITEMS;
+  const navItems = pathname === "/eebc" ? ICP_NAV_ITEMS : DEFAULT_NAV_ITEMS;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);

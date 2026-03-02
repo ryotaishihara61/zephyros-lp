@@ -90,7 +90,7 @@ export const metadata = {
     title: "Equity English Bootcamp｜ZEPHYROS",
     description:
       "あなたの事業を変えるのではない。あなたの「存在感」を変えるのだ。10社限定・5日間集中ブートキャンプ。",
-    url: "/icp",
+    url: "/eebc",
   },
 };
 
