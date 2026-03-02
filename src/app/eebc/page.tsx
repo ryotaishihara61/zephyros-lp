@@ -507,6 +507,10 @@ export default function IcpPage() {
                     ペンシルベニア大学時代からの旧友に米国VCのパートナーが多数在籍。「投資家の眼」はテキストブックではなく、学生時代から続く実際の人間関係から培われたものだ。
                   </p>
                   <p className="text-slate-600 leading-snug">
+                    <strong className="text-zephyros-navy block mb-1">専門性</strong>
+                    グローバル・エグゼクティブ・コミュニケーションのプロフェッショナル。インストラクターとして15年のキャリアを持ち、経営者の「伝わり方」を変えることに特化し続けてきた。
+                  </p>
+                  <p className="text-slate-600 leading-snug">
                     <strong className="text-zephyros-navy block mb-1">担当フェーズ</strong>
                     Day 1（Audit）と Day 5（Final Simulation）を担当。経営者の変革を最初と最後で見届ける。
                   </p>
