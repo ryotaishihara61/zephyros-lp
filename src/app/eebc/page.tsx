@@ -79,6 +79,13 @@ const ICP_IMAGES = {
   caseStudy: "/images/icp/case_study_aiona_training.jpg",
 } as const;
 
+/** EEBC講師画像（public/images/eebc/ に配置） */
+const EEBC_INSTRUCTORS = [
+  { src: "/images/eebc/1.png", objectPosition: "center 20%" },
+  { src: "/images/eebc/2.png", objectPosition: "center top" },
+  { src: "/images/eebc/3.png", objectPosition: "center 15%" },
+] as const;
+
 const CARD_HOVER =
   "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-zephyros-navy/30";
 
@@ -538,12 +545,19 @@ export default function IcpPage() {
                 </div>
                 {/* 講師3名の写真プレースホルダー */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-                  {([1, 2, 3] as const).map((n) => (
-                    <div key={n} className="flex flex-col items-center text-center bg-slate-50 rounded-xl p-5 border border-slate-100">
-                      <div className="w-20 h-20 rounded-xl bg-slate-200 border-2 border-dashed border-slate-300 flex items-center justify-center mb-3">
-                        <span className="text-slate-400 text-[10px] font-semibold tracking-wide">PHOTO</span>
+                  {EEBC_INSTRUCTORS.map((instructor, i) => (
+                    <div key={i} className="flex flex-col items-center text-center bg-slate-50 rounded-xl p-5 border border-slate-100">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden mb-3">
+                        <Image
+                          src={instructor.src}
+                          alt={`ネイティブ講師 ${i + 1}`}
+                          fill
+                          className="object-cover"
+                          style={{ objectPosition: instructor.objectPosition }}
+                          sizes="80px"
+                        />
                       </div>
-                      <p className="text-zephyros-navy font-semibold text-sm">ネイティブ講師 {n}</p>
+                      <p className="text-zephyros-navy font-semibold text-sm">ネイティブ講師 {i + 1}</p>
                       <p className="text-slate-500 text-xs mt-0.5">Day 2–4 担当</p>
                     </div>
                   ))}
