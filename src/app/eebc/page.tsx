@@ -527,7 +527,7 @@ export default function IcpPage() {
                   Strategy &amp; Judge
                 </span>
                 <p className="text-zephyros-navy font-bold text-xl mb-1">Jun Page</p>
-                <p className="text-slate-500 text-xs mb-5">代表取締役 / ペンシルベニア大学卒 / 元KPMG NYシニアマネージャー</p>
+                <p className="text-slate-500 text-xs mb-5">代表取締役 / ペンシルベニア大学卒 / 元KPMG NYシニアマネージャー / 日本語ネイティブ</p>
                 <div className="text-left w-full space-y-3 text-sm">
                   <p className="text-slate-600 leading-snug">
                     <strong className="text-zephyros-navy block mb-1">投資家の眼力</strong>
