@@ -23,49 +23,54 @@ const HERO_COPY = (
 );
 const HERO_SUB =
   "経営者の『振る舞い・話し方・見られ方（How）』を、グローバル投資家基準へ引き上げる。それが「Equity English Bootcamp」の唯一のミッションです。";
-const CTA_LABEL = "無料診断に申し込む";
+const CTA_LABEL = "オンライン無料診断に申し込む";
 const CTA_BADGE = "限定10社";
 const CTA_MICRO = "※代表の稼働状況により、早期に締め切る場合がございます";
 
 const CONTEXT_INSIGHT =
-  "投資家は、あなたが答えに窮した時の「視線」や、一瞬の「沈黙」を見ている。そこにあるのはロジックではなく、経営者の覚悟だ。";
+  "投資家は、あなたが答えに窮した時の「視線」や一瞬の「躊躇」を見ている。内容以上に「どう話すか」と「覚悟」が問われている 。<br /><br />そこにあるのは英語力でもロジックでもない。";
 
 const ICP_FEATURES = [
   {
     title: "Presence Audit",
     description:
-      "ビジネスモデルではなく、あなたの「経営者としての見られ方」を、米国VCの評価軸で徹底的に監査。",
+      "基礎的な英語力の見極め。またビジネスモデルではなく、あなたの「経営者としての見られ方」を、米国VCの評価軸で徹底的に監査。",
+  },
+  {
+    title: "Persuasive Tools",
+    description:
+      "説得力と効果のあるプレゼンテーション、質問に対しての回答方法をスキルとして具体的に学ぶ。",
   },
   {
     title: "Non-verbal Mastery",
     description:
-      "英語力の限界を超え、非言語（プレゼンス・声のトーン・間合い）で相手を心服させるエグゼクティブのデリバリー。",
+      "英語力の限界を超え、非言語（プレゼンス・声のトーン・間合い）で相手を心服させるエグゼクティブのデリバリーを習得する。",
   },
   {
     title: "High-Stakes Dialogue",
     description:
-      "予想外の鋭い問いに対し、英語の巧拙ではなく「ロジックと気迫」で答え、心理的優位を保つ実戦シミュレーション。",
+      "「予想外の鋭い問い」に対し、英語の巧拙ではなく「ロジックと気迫」で答え、心理的優位を保つ実戦シミュレーション。",
   },
 ] as const;
 
 const TRAINING_DAYS = [
   {
-    step: 2,
-    title: "Non-verbal Mastery",
+    step: 1,
+    title: "Dialogue Mastery",
     description:
-      "視線・姿勢・声のトーン。言葉より先に伝わる非言語シグナルを投資家基準に再設計する。",
+      "自己紹介・会社紹介への自信を構築する。投資家が実際に何を求めているかを深く理解する。",
+  },
+  {
+    step: 2,
+    title: "High-Stakes Investor Dialogue",
+    description:
+      "厳格な実戦的投資家Q&Aで実践力を磨く。冷静さ・確信・戦略的な精度をもって答える力を鍛える。",
   },
   {
     step: 3,
-    title: "Dialogue Agility",
+    title: "Executive Communication Optimization",
     description:
-      "想定外の問いへの対話力。「ロジックと気迫」で心理的優位を保つ実戦トレーニング。",
-  },
-  {
-    step: 4,
-    title: "Presence Integration",
-    description:
-      "習得スキルを統合。実戦ロールプレイで瞬発力と一貫性を磨き上げる。",
+      "発音と言語パターンを矯正し、明瞭さ・発声・言語コントロールを高める。自信と説得力ある権威でメッセージを届ける。",
   },
 ] as const;
 
@@ -134,9 +139,7 @@ export default function IcpPage() {
           </p>
           <div className="max-w-2xl mx-auto">
             <blockquote className="border-l-4 border-zephyros-navy pl-6 py-4 bg-slate-50 rounded-r-lg">
-              <p className="text-zephyros-navy font-semibold text-lg md:text-xl leading-relaxed tracking-tight">
-                {CONTEXT_INSIGHT}
-              </p>
+              <p className="text-zephyros-navy font-semibold text-lg md:text-xl leading-relaxed tracking-tight" dangerouslySetInnerHTML={{ __html: CONTEXT_INSIGHT }} />
             </blockquote>
           </div>
         </LpAnimateSection>
@@ -234,7 +237,7 @@ export default function IcpPage() {
         </LpAnimateSection>
       </LpSection>
 
-      {/* 5日間集中ブートキャンプ: 1-3-1 Structure */}
+      {/* 5日間集中ブートキャンプ */}
       <LpSection
         variant="dark"
         id="sprint"
@@ -243,47 +246,45 @@ export default function IcpPage() {
         <LpAnimateSection>
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4 md:mb-6 tracking-tight">
             5日間集中ブートキャンプ
-            <span className="ml-3 text-orange-400 font-extrabold">1-3-1</span>
           </h2>
           <p className="text-white/75 text-center max-w-2xl mx-auto mb-5 text-base md:text-lg leading-relaxed">
-            1日5時間×5日間。単なる研修ではなく、経営者としての「見られ方」とプレゼンスが根本から変わる集中プログラム。
+            5日間連続。単なる研修ではなく、経営者としての「見られ方」とプレゼンスが根本から変わる集中プログラム。
           </p>
           <div className="flex items-center justify-center gap-2 mb-14 md:mb-20 text-white/55 text-sm">
             <MapPin className="size-4 text-orange-400 flex-shrink-0" aria-hidden />
-            <span>高松本社ビル開催 — プログラム時間外はオフィス設備でリモートワーク可能</span>
+            <span>開催地：香川県高松市 — プログラム時間外はオフィス設備でリモートワーク可能</span>
           </div>
 
-          {/* 1-3-1 Grid */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)_minmax(0,1fr)] gap-6 lg:gap-5">
-
-            {/* Phase 1: Day 1 — Jun Page */}
-            <div className="flex flex-col">
-              <div className="text-center mb-3">
-                <span className="inline-block text-xs font-bold tracking-widest uppercase text-orange-400 bg-orange-400/10 border border-orange-400/30 rounded-md px-3 py-1">
-                  Phase 1 — Audit
-                </span>
-              </div>
-              <Card className="flex-1 bg-white border border-orange-400/50 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
-                <CardHeader className="pb-2">
-                  <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
-                    Day 1
-                  </span>
-                  <CardTitle className="text-slate-900 text-base md:text-lg font-semibold leading-snug">
-                    Persona & Presence Audit
-                  </CardTitle>
-                  <p className="text-sm text-orange-600 font-semibold mt-1">Jun Page / 代表直轄</p>
-                </CardHeader>
-                <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
-                  現状の振る舞いが投資家にどう映っているかを徹底解析。非言語シグナルから言葉の選択まで全てを投資家の眼で評価し、変革のベースラインを確定する。
-                </CardContent>
-              </Card>
+          {/* Day 0: Pre-program Audit */}
+          <div className="max-w-6xl mx-auto mb-8">
+            <div className="text-center mb-3">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-slate-400 bg-white/5 border border-white/15 rounded-md px-3 py-1">
+                Day 0 — 事前監査（オンライン）
+              </span>
             </div>
+            <Card className="bg-white/5 border border-white/15 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/30">
+              <CardHeader className="pb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <CardTitle className="text-white text-base md:text-lg font-semibold leading-snug">
+                    Persona &amp; Presence Audit
+                  </CardTitle>
+                  <p className="text-sm text-white/50 font-medium">Jun Page &amp; LHトレーナー / オンライン 30〜60分</p>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0 text-white/70 text-sm leading-relaxed">
+                プログラムがあなたに最適かどうかを確認するため、英語コミュニケーション能力を事前評価。さらに非言語シグナルや言葉の選択を投資家の視点で分析し、現状があなたにどう映っているかを診断。プログラムに対する個別の目標とニーズを丁寧にすり合わせる。
+              </CardContent>
+            </Card>
+          </div>
 
-            {/* Phase 2: Day 2-4 — Native Instructors */}
+          {/* Day Grid */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)_minmax(0,1fr)] gap-6 lg:gap-5">
+
+            {/* Phase 1: Day 1-3 — Native Instructors */}
             <div className="flex flex-col">
               <div className="text-center mb-3">
                 <span className="inline-block text-xs font-bold tracking-widest uppercase text-white/60 bg-white/5 border border-white/20 rounded-md px-3 py-1">
-                  Phase 2 — Performance Training
+                  Phase 1 — Performance Training
                 </span>
               </div>
               <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -309,25 +310,48 @@ export default function IcpPage() {
               </div>
             </div>
 
-            {/* Phase 3: Day 5 — Jun Page */}
+            {/* Phase 2: Day 4 — Jun Page */}
             <div className="flex flex-col">
               <div className="text-center mb-3">
                 <span className="inline-block text-xs font-bold tracking-widest uppercase text-orange-400 bg-orange-400/10 border border-orange-400/30 rounded-md px-3 py-1">
-                  Phase 3 — Final
+                  Phase 2 — Integration
                 </span>
               </div>
               <Card className="flex-1 bg-white border border-orange-400/50 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.4)]">
                 <CardHeader className="pb-2">
                   <span className="text-3xl font-extrabold text-orange-500 tracking-tight mb-1 block">
-                    Day 5
+                    Day 4
                   </span>
                   <CardTitle className="text-slate-900 text-base md:text-lg font-semibold leading-snug">
-                    Final Pitch Simulation
+                    Command Presence Integration
                   </CardTitle>
                   <p className="text-sm text-orange-600 font-semibold mt-1">Jun Page / 代表直轄</p>
                 </CardHeader>
                 <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
-                  投資家を心服させるプレゼンスが完成しているか、代表がジャッジ。本物の投資家基準で最終評価を行い、次のピッチへの確信を手渡す。
+                  自信・構成・パフォーマンス・ストーリーテリング・Q&Aコントロールを「Six Sフレームワーク」で統合。録画プレゼンで代表から直接エグゼクティブレベルのフィードバックを受け、投資家環境で信頼を勝ち取る力を磨き上げる。
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Phase 3: Day 5 — Native Instructors */}
+            <div className="flex flex-col">
+              <div className="text-center mb-3">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-white/60 bg-white/5 border border-white/20 rounded-md px-3 py-1">
+                  Phase 3 — Final
+                </span>
+              </div>
+              <Card className="flex-1 bg-white border border-slate-200 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_56px_rgba(0,0,0,0.3)]">
+                <CardHeader className="pb-2">
+                  <span className="text-3xl font-extrabold text-slate-400 tracking-tight mb-1 block">
+                    Day 5
+                  </span>
+                  <CardTitle className="text-slate-900 text-base md:text-lg font-semibold leading-snug">
+                    Final Investor Pitch
+                  </CardTitle>
+                  <p className="text-xs text-slate-500 mt-1">精鋭ネイティブ講師</p>
+                </CardHeader>
+                <CardContent className="pt-0 text-slate-600 text-sm leading-relaxed">
+                  投資家ピッチを実施。プレゼンスとインパクトが実際の投資家基準を満たしているかを評価し、次のピッチへの確信を手渡す。
                 </CardContent>
               </Card>
             </div>
@@ -451,7 +475,7 @@ export default function IcpPage() {
                   「流暢な英語は、世界で活躍するためのパスポートではない」
                 </p>
                 <p className="text-slate-600 text-sm md:text-base mt-3 leading-relaxed">
-                  日本での生活・就労経験を持つ講師陣だからこそ可能な、文化的背景と実体験を交えたグローバル視点の指導——それが私たちの圧倒的な強みです。
+                  海外と日本両方での生活・就労経験を持つ講師陣だからこそ可能な、文化的背景と実体験を交えたグローバル視点の指導——それが私たちの圧倒的な強みです。
                 </p>
               </blockquote>
             </div>
@@ -479,7 +503,7 @@ export default function IcpPage() {
 
           {/* Part 2: 講師陣 */}
           <h2 className="text-2xl md:text-3xl font-bold text-zephyros-navy text-center mb-4 tracking-tight">
-            あなたのプレゼンスを変える、2つの力
+            講師チーム
           </h2>
           <p className="text-slate-500 text-center max-w-xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
             戦略家と鍛え屋。Jun Page の「投資家の眼」と、精鋭講師陣の「徹底指導」が、経営者を別次元へと押し上げる。
@@ -519,7 +543,7 @@ export default function IcpPage() {
                   </p>
                   <p className="text-slate-600 leading-snug">
                     <strong className="text-zephyros-navy block mb-1">担当フェーズ</strong>
-                    Day 1（Audit）と Day 5（Final Simulation）を担当。経営者の変革を最初と最後で見届ける。
+                    プログラム総監修。投資家がリーダーをどのように評価するかについて深い洞察を提供。Day4のCommand Presence Integrationを主導します。
                   </p>
                 </div>
               </div>
@@ -534,7 +558,7 @@ export default function IcpPage() {
                   </span>
                   <h4 className="text-zephyros-navy text-xl font-bold mb-2">精鋭ネイティブ講師陣</h4>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
-                    全員が日本での就業経験を持ち、日本人の誠実さ・緻密さ・思慮深さを心から敬意を持って理解している。だからこそ、日本人経営者が「何を持っているか」ではなく、「何が足りないか」が鮮明に見える。
+                    全員が海外および日本での就業経験を持ち、日本人の誠実さ・緻密さ・思慮深さを心から敬意を持って理解している。だからこそ、日本人経営者が「何を持っているか」ではなく、「何が足りないか」が鮮明に見える。
                   </p>
                   <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
                     英会話スクールの講師ではない。グローバルの舞台で日本人が壁にぶつかる瞬間——間の取り方、アイコンタクト、反論への対処——その一点に特化した、コミュニケーション変革のプロフェッショナルだ。
@@ -557,7 +581,7 @@ export default function IcpPage() {
                           sizes="80px"
                         />
                       </div>
-                      <p className="text-zephyros-navy font-semibold text-sm">ネイティブ講師 {i + 1}</p>
+                      <p className="text-zephyros-navy font-semibold text-sm">ネイティブ講師</p>
                       <p className="text-slate-500 text-xs mt-0.5">Day 2–4 担当</p>
                     </div>
                   ))}

@@ -3,8 +3,8 @@ import { Logo } from "./Logo";
 
 const FOOTER_LINKS = [
   { label: "会社概要", href: "https://zephyros.jp/about-us/", external: true },
-  { label: "プライバシーポリシー", href: "/privacy", external: false },
-  { label: "利用規約", href: "/terms", external: false },
+  { label: "プライバシーポリシー", href: "https://zephyros.jp/privacy-policy/", external: true },
+  { label: "利用規約", href: "https://zephyros.jp/terms/", external: true },
 ] as const;
 
 export function Footer() {
