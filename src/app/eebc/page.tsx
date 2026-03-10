@@ -259,16 +259,16 @@ export default function IcpPage() {
           <div className="max-w-6xl mx-auto mb-8">
             <div className="text-center mb-3">
               <span className="inline-block text-xs font-bold tracking-widest uppercase text-slate-400 bg-white/5 border border-white/15 rounded-md px-3 py-1">
-                Day 0 — 事前監査（オンライン）
+                Day 0 — 事前インタビュー（オンライン）
               </span>
             </div>
             <Card className="bg-white/5 border border-white/15 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/30">
               <CardHeader className="pb-2">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                   <CardTitle className="text-white text-base md:text-lg font-semibold leading-snug">
-                    Persona &amp; Presence Audit
+                    Initial Interview
                   </CardTitle>
-                  <p className="text-sm text-white/50 font-medium">Jun Page &amp; LHトレーナー / オンライン 30〜60分</p>
+                  <p className="text-sm text-white/50 font-medium">Jun Page &amp; 講師 / オンライン 30〜60分</p>
                 </div>
               </CardHeader>
               <CardContent className="pt-0 text-white/70 text-sm leading-relaxed">
@@ -486,7 +486,7 @@ export default function IcpPage() {
                 主要クライアント実績（一部）
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {["トヨタ自動車", "今治造船", "大塚製薬"].map((name) => (
+                {["トヨタ自動車", "今治造船", "大塚製薬", "香川県警察", "シャープ", "タダノ", "ヤマト運輸", "四国電力", "アマゾン", "百十四銀行"].map((name) => (
                   <span
                     key={name}
                     className="text-sm font-semibold text-zephyros-navy bg-white border border-slate-200 rounded-lg px-5 py-2.5 shadow-sm"
