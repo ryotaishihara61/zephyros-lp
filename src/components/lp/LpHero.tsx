@@ -10,6 +10,8 @@ interface LpHeroProps {
   ctaHref?: string;
   /** 指定時は画像を表示。未指定時はポリゴン／メッシュグラデーションで奥行き表現 */
   backgroundImage?: string;
+  /** 指定時は動画を背景に表示（backgroundImage より優先） */
+  backgroundVideo?: string;
   /** default: 標準グラデーション / icp: 深み・金融系のグラデーション */
   heroVariant?: "default" | "icp";
   /** メインコピー（h1）に渡す追加クラス（例: font-extrabold） */
@@ -67,6 +69,7 @@ export function LpHero({
   ctaLabel = "お問い合わせ",
   ctaHref = "#cta",
   backgroundImage,
+  backgroundVideo,
   heroVariant = "default",
   catchCopyClassName = "",
   contentMaxWidth,
@@ -80,7 +83,19 @@ export function LpHero({
     <section
       className={`relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-zephyros-navy text-white px-6 py-20 ${className}`}
     >
-      {backgroundImage ? (
+      {backgroundVideo ? (
+        <div className="absolute inset-0 z-0">
+          <video
+            src={backgroundVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-70"
+          />
+          <div className={`absolute inset-0 ${backgroundOverlayClassName}`} />
+        </div>
+      ) : backgroundImage ? (
         <div className="absolute inset-0 z-0">
           <Image
             src={backgroundImage}

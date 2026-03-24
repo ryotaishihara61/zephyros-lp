@@ -117,8 +117,7 @@ export default function IcpPage() {
         heroVariant="icp"
         catchCopyClassName="font-extrabold tracking-tight !text-[1.375rem] sm:!text-[1.1875rem] md:!text-[1.375rem] lg:!text-[1.6875rem] xl:!text-[2.0625rem]"
         contentMaxWidth="max-w-4xl md:max-w-5xl lg:max-w-6xl"
-        backgroundImage={ICP_IMAGES.hero}
-        backgroundImageClassName="object-cover opacity-70 object-center md:object-[center_30%]"
+        backgroundVideo="/videos/eebc/asian-businessman-shaking-hands.mp4"
         backgroundOverlayClassName="bg-gradient-to-b from-zephyros-navy/75 via-zephyros-navy/65 to-zephyros-navy/55"
         twoColumnLayout
         ctaBadge={CTA_BADGE}
